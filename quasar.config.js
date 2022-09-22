@@ -19,11 +19,11 @@ module.exports = configure(function (/* ctx */) {
         node: "node16",
       },
 
-      vueRouterMode: "hash", // available values: 'hash', 'history'
+      vueRouterMode: "hash",
     },
 
     devServer: {
-      open: true, // opens browser window automatically
+      open: true,
     },
 
     framework: {
@@ -37,15 +37,13 @@ module.exports = configure(function (/* ctx */) {
     ssr: {
       pwa: false,
 
-      prodPort: 3000, // The default port that the production server should use
+      prodPort: 3000,
 
-      middlewares: [
-        "render", // keep this as last one
-      ],
+      middlewares: ["render"],
     },
 
     pwa: {
-      workboxMode: "generateSW", // or 'injectManifest'
+      workboxMode: "generateSW",
       injectPwaMetaTags: true,
       swFilename: "sw.js",
       manifestFilename: "manifest.json",
@@ -61,32 +59,17 @@ module.exports = configure(function (/* ctx */) {
     electron: {
       inspectPort: 5858,
 
-      bundler: "packager", // 'packager' or 'builder'
+      bundler: "packager",
 
-      packager: {
-        // https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#options
-        // OS X / Mac App Store
-        // appBundleId: '',
-        // appCategoryType: '',
-        // osxSign: '',
-        // protocol: 'myapp://path',
-        // Windows only
-        // win32metadata: { ... }
-      },
+      packager: {},
 
       builder: {
-        // https://www.electron.build/configuration/configuration
-
         appId: "quasar-todo",
       },
     },
 
-    // Full list of options: https://v2.quasar.dev/quasar-cli-vite/developing-browser-extensions/configuring-bex
     bex: {
       contentScripts: ["my-content-script"],
-
-      // extendBexScriptsConf (esbuildConf) {}
-      // extendBexManifestJson (json) {}
     },
   };
 });
